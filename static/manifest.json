@@ -1,0 +1,12 @@
+{
+    "name": "Corporate Marketplace",
+    "short_name": "Marketplace",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "theme_color": "#FFFFFF",
+    "background_color": "#FFFFFF",
+    "description": "An online marketplace for selling items to your colleagues and other corporate professionals.",
+    "author": "Bharath",
+    "version": "1.0.0"
+  }
+  

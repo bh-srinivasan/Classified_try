@@ -25,7 +25,7 @@ const port = 3001;
 // Setting express template and views path
 app.set('view engine', 'ejs');
 
-app.set('views', path.join(__dirname, './views'));
+app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static(path.join(__dirname, 'static')));
 
@@ -58,6 +58,21 @@ app.use(bodyParser.json());
 
 // Routes
 app.use('/', routes());
+
+// Middleware to handle "File not found" errors
+app.use((request, response, next) => {
+  next(createError(404, 'File not found'));
+});
+
+// Error handling middleware
+app.use((err, request, response) => {
+  response.locals.message = err.message;
+  console.error(err);
+  const status = err.status || 500;
+  response.locals.status = status;
+  response.status(status);
+  response.render('error');
+});
 
 app.listen(port, () => {
   console.log(`Express server listening on port ${port}!`);
