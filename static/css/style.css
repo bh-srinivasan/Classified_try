@@ -1,0 +1,151 @@
+/* Reset styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global styles */
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: #333;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo a {
+  font-weight: 700;
+  font-size: 24px;
+  color: #333;
+  text-decoration: none;
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+nav ul li a:hover {
+  color: #666;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+}
+
+.hero h1 {
+  font-weight: 700;
+  font-size: 48px;
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+  font-size: 24px;
+  margin-bottom: 30px;
+  text-align: center;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: #fff;
+  color: #333;
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.categories {
+  margin: 50px 0;
+  text-align: center;
+}
+
+.categories h2 {
+  font-weight: 700;
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+.categories ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.categories ul li {
+  margin-right: 20px;
+}
+
+.categories ul li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.categories ul li a:hover {
+  color: #666;
+}
+
+.featured-products {
+  margin: 50px 0;
+  text-align: center;
+}
+
+.featured-products h2 {
+  font-weight: 700;
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+.featured-products ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.featured-products ul li {
+  margin-right: 30px;
+}

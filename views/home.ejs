@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1>Classifieds Home</h1>
+    <form>
+      <label for="search">Search:</label>
+      <input type="text" id="search" name="search" placeholder="<%= searchPlaceholder %>">
+      <button type="submit">Go</button>
+    </form>
+    <h2>Categories</h2>
+    <ul>
+      <% categories.forEach((category) => { %>
+        <li><%= category %></li>
+      <% }); %>
+    </ul>
+    <h2>Filters</h2>
+    <ul>
+      <% filters.forEach((filter) => { %>
+        <li>
+          <label for="<%= filter.name %>"><%= filter.name %>:</label>
+          <select id="<%= filter.name %>" name="<%= filter.name %>">
+            <% filter.options.forEach((option) => { %>
+              <option value="<%= option %>"><%= option %></option>
+            <% }); %>
+          </select>
+        </li>
+      <% }); %>
+    </ul>
+    <h2>Featured Listings</h2>
+    <% featuredListings.forEach((listing) => { %>
+      <div>
+        <h3><%= listing.title %></h3>
+        <p>Price: <%= listing.price %></p>
+        <p>Location: <%= listing.location %></p>
+        <img src="<%= listing.imageUrl %>">
+      </div>
+    <% }); %>
+  </body>
+</html>

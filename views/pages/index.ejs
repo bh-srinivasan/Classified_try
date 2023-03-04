@@ -1,0 +1,32 @@
+<%- include(`./partials/topspeakers`) %>
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-8">
+        <article class="article maincontent">
+          <h1>Who are we?</h1>
+          <p><%= exhibitInfo %></p>
+          <p><%= featuredArtistText%></p>
+        </article>
+        <article class="article maincontent">
+          <h2 class="article-title">Get Busy!</h2>
+          <p>If you want to keep up with what&apos;s going on with the group, <a
+              href="http://www.meetup.com/rouxmeet">join our meetup group</a>,
+            <a href="http://www.twitter.com/rouxmeet">follow us on twitter</a>. If you&apos;re in FaceBook, you can
+            also <a href="http://www.facebook.com/rouxmeet">join our FaceBook group</a>.</p>
+        </article>
+      </div>
+
+      <aside class="col-md-4">
+        <article class="sidebar">
+          <h1 class="sidebar-title">Who should come?</h1>
+          <ul class="sidebar-body">
+            <li>Anybody interested in art and the creative industry</li>
+            <li>Painters, sculptors, photographers and graphic artists</li>
+            <li>Those interested in meeting and making a connection with others in the local art scene.</li>
+          </ul>
+          <%- include(`./partials/artworks`) %>
+        </article>
+        
+      </aside>
+    </div>
+  </div>
