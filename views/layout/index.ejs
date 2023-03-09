@@ -17,52 +17,35 @@
     <meta name="js-translations" />
     <link rel="manifest" href="/manifest.json" />
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+
 
     <script type="text/javascript">
       // Fix for Firefox autofocus CSS bug
       // See: http://stackoverflow.com/questions/18943276/html-5-autofocus-messes-up-css-loading/18945951#18945951
     </script>
   </head>
-  <body class="exp-borderless-input-group">
-    <nav class="navigation_bar">
-      <div class="logo">
-        <a href="/">My Website Logo</a>
-      </div>
-      <div class="reverb-header__nav reverb-header__nav--main">
-        <div class="reverb-header__nav__search">
-          <div class="site-search__underlay">
-            <div class="site-search site-search--active">
-              <div class="site-search__controls">
-                <div class="offset-anchor-wrapper">
-                  <div class="offset-anchor scrollTarget"></div>
-                </div>
-                <input
-                  type="text"
-                  class="site-search__controls__input"
-                  title="Search Reverb for used &amp; new music gear"
-                  autocorrect="off"
-                  autocapitalize="off"
-                  tabindex="0"
-                  value=""
-                  placeholder="Shop for used &amp; new music gear..."
-                /><a
-                  class="site-search__controls__submit"
-                  rel="submit-form"
-                ></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="watchlist">
-        <a href="/watchlist">Watch List</a>
-      </div>
-      <div class="signup">
-        <a href="/signup">Sign up</a>
-      </div>
-      <div class="login">
-        <a href="/login">Login</a>
-      </div>
+  <body>
+    <nav class="top_navigation_bar">
+      <nav>
+        <ul>
+          <li><a href="#" class="logo">Together Mart</a></li>
+          <li class="search">
+            <form action="/search" method="GET">
+              <input type="text" name="query" placeholder="Search for Used or new Items">
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+          </li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Connect</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
     </nav>
   </body>
 </html>

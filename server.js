@@ -32,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'static')));
 app.set('trust proxy', 1);
 
 // Set Global Variables
-app.locals.siteName = 'TogetherMart';
+app.locals.appName= 'Together Mart';
 
 // Set Variables for Home Page in response
 app.use((request, response, next) => {
