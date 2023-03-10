@@ -71,7 +71,7 @@ app.use((err, request, response) => {
   const status = err.status || 500;
   response.locals.status = status;
   response.status(status);
-  response.render('error');
+  response.render('error'); 
 });
 
 app.listen(port, () => {
