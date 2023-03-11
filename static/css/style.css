@@ -1,9 +1,9 @@
 nav {
   margin: 0;
   padding: 10px 0;
-}
-
-nav ul {
+  }
+  
+  nav ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -12,118 +12,140 @@ nav ul {
   justify-content: left;
   border-bottom: 0.5px solid grey;
   align-items: center; /* vertically center items */
-}
-
-nav a {
+  }
+  
+  nav a {
   color: #212121;
   text-decoration: none;
   font-weight: 600;
   display: block;
   padding: 0.5rem 1rem;
-}
-
-nav a:focus {
+  }
+  
+  nav a:focus {
   background-color: #F0C808;
   color: black;
-}
-
-nav a:hover:not(.sell_or_rent .rectangle-link) {
+  }
+  
+  nav a:hover:not(.sell_or_rent .rectangle-link) {
   background-color: orange;
   color: white;
-}
-
-.active {
-  color: white;
-  background-color: #c5e5ed;
-}
-
-.logo {
+  }
+  
+  .logo {
   color: #212121;
   padding-left: 2.4rem;
-}
-
-nav form {
+  }
+  
+  nav form {
   display: flex;
   align-items: center;
   width: 100%;
-}
-
-nav input[type="text"] {
+  }
+  
+  nav input[type="text"] {
   width: 50%; /* set width to 50% */
   box-sizing: border-box;
   margin-left: 10px;
   padding: 8px 10px;
-}
-
-nav .search {
+  }
+  
+  nav .search {
   vertical-align: middle;
   padding: 8px 10px;
-}
-
-nav .search input[type="text"] {
+  }
+  
+  nav .search input[type="text"] {
   width: 40vw;
   box-sizing: border-box;
   padding: 8px 10px;
   height: 100%;
-}
-
-nav .search button[type="submit"] {
+  }
+  
+  nav .search button[type="submit"] {
   height: 100%;
   padding: 8px 10px;
   margin: 0;
-}
-
-.sell_or_rent {
+  }
+  
+  .sell_or_rent {
   padding: 8px 10px;
-}
-
-.sell_or_rent .rectangle {
+  }
+  
+  .sell_or_rent .rectangle {
   background-color: white;
   border: 1px solid black;
   text-align: center;
   border-radius: 30px;
-  padding: 12px 0; /* decrease left and right padding */
-  padding-left: 20px; /* add left padding */
-  padding-right: 20px; /* add right padding */
+  padding: 12px 0; /* decrease left and right padding /
+  padding-left: 20px; / add left padding /
+  padding-right: 20px; / add right padding */
   font-size: 0.8em;
-}
-
-.sell_or_rent .text {
+  }
+  
+  .sell_or_rent .text {
   font-size: 1rem; /* set the font size to 1rem */
-}
-
-.rectangle-link {
+  }
+  
+  .rectangle-link {
   display: inline-block;
   text-decoration: none;
   color: black;
   height: 100%;
   padding: 0;
   margin: 0;
-}
-
-.rectangle {
+  }
+  
+  .rectangle {
   background-color: white;
   border: 1px solid black;
   text-align: center;
-  border-radius: 30px; /* set the border radius */
-  padding: 12px 20px; /* increase padding */
-  font-size: 0.8em; /* add this line to set the font size */
+  border-radius: 30px; /* set the border radius /
+  padding: 12px 20px; / increase padding /
+  font-size: 0.8em; / add this line to set the font size */
   background-clip: padding-box;
-}
-
-nav .sell_or_rent .rectangle-link:hover .rectangle {
-  background-color: red !important;
+  }
+  
+  nav .sell_or_rent .rectangle-link:hover .rectangle {
+  background-color: green !important;
   color: white !important;
-}
-
-.sell_or_rent-rectangle:hover {
-  background-color: red;
+  }
+  
+  .sell_or_rent-rectangle:hover {
+  background-color: green;
   color: white;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
-}
+  }
+  
+  .sell_or_rent-rectangle:hover::before,
+  .sell_or_rent-rectangle:hover::after {
+  background-color: green;
+  }
+  
+  .fas.fa-heart {
+  margin-left: 5px;
+  color: red;
+  } 
 
-.sell_or_rent-rectangle:hover::before,
-.sell_or_rent-rectangle:hover::after {
-  background-color: red;
-}
+  .watchlist-container {
+    display: flex;
+    align-items: center;
+    height: 100%; /* Set the height of the container to 100% */
+  }
+  
+  .watchlist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #000;
+    text-decoration: none;
+  }
+  
+  .watchlist i {
+    margin-bottom: 5px;
+  }
+
+  .small_text{
+    font-size: 1rem;
+  }
