@@ -6,7 +6,7 @@
   xmlns="http://www.w3.org/1999/xhtml"
 >
   <head>
-    <title>Items for Sale</title>
+    <title><%=siteName%> | <%=pageTitle%> </title>
     <meta
       name="description"
       content="Website to sell Items to your Colleagues and other Corporate Professionals"
@@ -42,34 +42,7 @@
     </script>
   </head>
   <body>
-    <nav class="top_navigation_bar">
-      <ul>
-        <li><a href="#" class="logo">Together Mart</a></li>
-        <li class="search">
-          <form action="/search" method="GET">
-            <input
-              type="text"
-              name="query"
-              placeholder="Search for Used or new Items"
-            />
-            <button type="submit"><i class="fa fa-search"></i></button>
-          </form>
-        </li>
-        <li class="sell_or_rent">
-          <a href="https://www.example.com" class="rectangle-link">
-            <div class="rectangle sell_or_rent-rectangle">Sell your Item</div>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="watchlist">
-            <i class="far fa-heart"></i>
-            <span class="small_text">Watch List</span>
-          </a>
-        </li>
-        <li><a href="#">Connect</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
+    <%- include(`./partials/top_navigation`) %>
     
   </body>
 </html>

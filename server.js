@@ -55,6 +55,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(bodyParser.json());
 
+// Set Global Variables
+app.locals.siteName = 'Together Mart';
 
 // Routes
 app.use('/', routes());

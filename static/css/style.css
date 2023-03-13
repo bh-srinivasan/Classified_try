@@ -22,14 +22,8 @@ nav {
   padding: 0.5rem 1rem;
   }
   
-  nav a:focus {
-  background-color: #F0C808;
-  color: black;
-  }
-  
-  nav a:hover:not(.sell_or_rent .rectangle-link) {
-  background-color: orange;
-  color: white;
+  nav a:hover:not(.sell_or_rent .rectangle-link):not(.no-hover-color-change) {
+  color: orange;
   }
   
   .logo {
@@ -77,9 +71,9 @@ nav {
   border: 1px solid black;
   text-align: center;
   border-radius: 30px;
-  padding: 12px 0; /* decrease left and right padding /
-  padding-left: 20px; / add left padding /
-  padding-right: 20px; / add right padding */
+  padding: 12px 0; /* decrease left and right padding */
+  padding-left: 10px; 
+  padding-right: 10px;
   font-size: 0.8em;
   }
   
@@ -147,5 +141,5 @@ nav {
   }
 
   .small_text{
-    font-size: 1rem;
+    font-size: 0.7rem;
   }
