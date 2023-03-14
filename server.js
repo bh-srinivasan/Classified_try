@@ -15,6 +15,9 @@ const bodyParser = require('body-parser');
 const FeedbackService = require('./services/FeedbackService');
 const SpeakerService = require('./services/SpeakerService');
 
+// Call constructors of FeebackService and SpeakerService
+const feedbackService = new FeedbackService('./data/feedback.json');
+const speakerService = new SpeakerService('./data/speakers.json');
 
 const routes = require('./routes/index');
 
@@ -63,7 +66,7 @@ app.use(bodyParser.json());
 app.locals.siteName = 'Together Mart';
 
 // Routes
-app.use('/', routes());
+app.use('/', routes({ feedbackService, speakerService }));
 
 // Middleware to handle "File not found" errors
 app.use((request, response, next) => {
