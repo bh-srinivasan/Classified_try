@@ -1,0 +1,58 @@
+{
+  "Categories": [
+    {
+      "name": "House",
+      "summary": "House for Sale or Rent or Find Roommate",
+      "subcategories": [
+        "House for Rent",
+        "House for Sale",
+        "Find Roommate"
+      ]
+    },
+    {
+      "name": "Household Items",
+      "summary": "House for Sale or Rent or Find Roommate",
+      "subcategories": [
+        "Gas Stove",
+        "Floor Cushion"
+      ]
+    },
+    {
+      "name": "Car Lease",
+      "summary": "Car Lease Transfer within the Company",
+      "subcategories": [
+        "Hyundai",
+        "Maruti",
+        "Kia",
+        "Tata"
+      ]
+    }, 
+    {
+      "name": "Furniture",
+      "summary": "Housing Furniture",
+      "subcategories": [
+        "Dining Table",
+        "Bed",
+        "Mattress"
+      ]
+    },
+    {
+      "name": "Electronic Items",
+      "summary": "Electric & Electronic Items",
+      "subcategories": [
+        "Mobile",
+        "Laptop",
+        "Monitor"
+      ]
+    },
+    {
+      "name": "Gift Cards",
+      "summary": "Gift Cards from Various brands",
+      "subcategories": [
+        "Amazon",
+        "Flipkart",
+        "Indigo"
+      ]
+    }
+  ]
+}
