@@ -11,6 +11,10 @@ const createError = require('http-errors');
 // Import Body-parser
 const bodyParser = require('body-parser');
 
+// Import Feedback and SpeakerService js
+const FeedbackService = require('./services/FeedbackService');
+const SpeakerService = require('./services/SpeakerService');
+
 
 const routes = require('./routes/index');
 
