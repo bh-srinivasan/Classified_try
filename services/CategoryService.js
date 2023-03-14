@@ -25,11 +25,8 @@ class CategoryService {
     const data = await this.getData();
 
     // We are using map() to transform the array we get into another one
-    return data.map(category => ({name: category.name,
-        shortname: category.shortname}));
-      
-      
-  }
+    return data.map(category => category.name);
+}
 
   /**
    * Get all Category Data
@@ -101,7 +98,7 @@ class CategoryService {
    */
   async getData() {
     const data = await readFile(this.datafile, "utf8");
-    return JSON.parse(data).speakers;
+    return JSON.parse(data).categories;
   }
 }
 

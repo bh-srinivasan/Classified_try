@@ -8,9 +8,9 @@ module.exports = params =>  {
         
         // Getting list of speakers and passing to page
         try{
-          const { categoryService } = params;
-          const categoryList = await categoryService.getList()
-          console.log(`Category List is:${categoryList}`)
+           const { categoryService } = params;
+           const categoryList = await categoryService.getNames()
+           console.log(`Category List is:${categoryList}`)
         return response.render('layout/index', { pageTitle: 'Home Page', template: 'index',} );
         }
         catch(err){

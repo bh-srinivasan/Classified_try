@@ -11,11 +11,12 @@ const createError = require('http-errors');
 // Import Body-parser
 const bodyParser = require('body-parser');
 
-// Import Feedback and SpeakerService js
-const SpeakerService = require('./services/SpeakerService');
+// Import CategoryService js
+const CategoryService = require('./services/CategoryService');
 
-// Call constructors of FeebackService and SpeakerService
-const speakerService = new SpeakerService('./data/speakers.json');
+// Call constructors of CategoryService
+const categoryService = new CategoryService(path.join(__dirname, 'data', 'categories.json'));
+console.log(categoryService);
 
 const routes = require('./routes/index');
 
@@ -64,22 +65,45 @@ app.use(bodyParser.json());
 app.locals.siteName = 'Together Mart';
 
 // Routes
-app.use('/', routes({ speakerService }));
+app.use('/', routes({ categoryService }));
 
 // Middleware to handle "File not found" errors
-app.use((request, response, next) => {
+ app.use((request, response, next) => {
   next(createError(404, 'File not found'));
-});
+}); 
 
 // Error handling middleware
-app.use((err, request, response) => {
-  response.locals.message = err.message;
+app.use((err, req, res) => {
+  // Set the error status and message
+  res.status(err.status || 500);
+  res.locals.error = err.message;
+  res.locals.errorStatus = err.status;
+
+  // Set the error stack trace (if available)
+  res.locals.errorStack = err.stack || '';
+
+  // If the error is a 404, set the message to be more specific
+  if (err.status === 404) {
+    res.locals.error = `The requested file '${req.originalUrl}' could not be found`;
+  }
+
+  // If the error is a CSS parsing error, add more details to the error message
+  if (err.name === 'CssSyntaxError') {
+    res.locals.error += `\n\nError in file '${err.filename}', line ${err.line}, column ${err.column}:\n${err.reason}`;
+  }
+
+  // If the error is a rendering error, add more details to the error message
+  if (err.view) {
+    res.locals.error += `\n\nError rendering '${err.view}'`;
+  }
+
+  // Log the error to the console
   console.error(err);
-  const status = err.status || 500;
-  response.locals.status = status;
-  response.status(status);
-  response.render('error'); 
+
+  // Render the error page
+  res.render('error');
 });
+
 
 app.listen(port, () => {
   console.log(`Express server listening on port ${port}!`);
