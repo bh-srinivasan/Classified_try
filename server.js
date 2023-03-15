@@ -16,10 +16,9 @@ const CategoryService = require('./services/CategoryService');
 
 // Call constructors of CategoryService
 const categoryService = new CategoryService(path.join(__dirname, 'data', 'categories.json'));
-console.log(categoryService);
+// yconsole.log(categoryService);
 
-const routes = require('./routes/index');
-
+const routes = require('./routes/index')({ categoryService });
 
 
 // Create an instance for Express
@@ -40,6 +39,7 @@ app.set('trust proxy', 1);
 // Set Global Variables
 app.locals.appName= 'Together Mart';
 
+
 // Set Variables for Home Page in response
 app.use((request, response, next) => {
   response.locals.homeVar = 'Home';
@@ -47,16 +47,17 @@ app.use((request, response, next) => {
 });
 
 
+
+
 // Setup Cookies
-app.use(
+app.use((request, response, next) => {
   cookieSession({
     name: 'session',
     keys: ['Bhar123212', 'Vidh123212'],
     maxAge: 1 * 60 * 60 * 1000, // 24 hours
-  })
-);
+  })(request, response, next);
+});
 
-// Setup BodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(bodyParser.json());
@@ -65,7 +66,7 @@ app.use(bodyParser.json());
 app.locals.siteName = 'Together Mart';
 
 // Routes
-app.use('/', routes({ categoryService }));
+app.use('/', routes);
 
 // Middleware to handle "File not found" errors
  app.use((request, response, next) => {
