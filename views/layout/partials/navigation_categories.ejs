@@ -1,0 +1,11 @@
+<nav class="categories_navigation_bar">
+    <ul>
+      <% categoryData.forEach(function(category) { %>
+        <li class="category_list">
+          <a href="#" class="category_list_link">
+            <%= category.name %>
+          </a>
+        </li>
+      <% }); %>
+    </ul>
+  </nav>

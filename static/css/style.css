@@ -143,3 +143,44 @@ nav {
   .small_text{
     font-size: 0.7rem;
   }
+
+  .categories_navigation_bar {
+    background-color: #f8f8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+  }
+  
+  .categories_navigation_bar ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .category_list {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .category_list_link {
+    border-bottom: none;
+    display: inline-block;
+    border: none;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 15px 20px;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .category_list_link:hover {
+    background-color:none;
+  }
+  
+  .categories_navigation_bar ul {
+    text-decoration: none;
+    border-bottom: none;
+  }

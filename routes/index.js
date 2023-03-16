@@ -1,33 +1,30 @@
 const express = require('express');
-
 const router = express.Router();
 
-module.exports = params =>  {
+let categoryData;
+
+module.exports = params => {
   let categoryList = null;
 
-  router.use('/', async (request, response, next) => {
+  router.use('/', async (req, res, next) => {
     if (!categoryList) {
       try {
-        console.log('Middleware function executing...');
-        
         const { categoryService } = params;
-        console.log('Calling categoryService.getNames()...');
         categoryList = await categoryService.getNames();
-        console.log(`Category List is: ${categoryList}`);
+        categoryData = await categoryService.getListShort();
       } catch (err) {
         next(err);
       }
     }
-  
-    response.locals.categoryList = categoryList;
+
+    res.locals.categoryList = categoryList;
+    res.locals.categoryData = categoryData; // corrected variable name
     next();
   });
-  
-  router.get('/', (request, response) => {
-    response.render('layout/index', { pageTitle: 'Home Page', template: 'index' });
+
+  router.get('/', (req, res) => {
+    res.render('layout/index', { pageTitle: 'Home Page', template: 'index' });
   });
-  
-  
 
   return router;
 };
