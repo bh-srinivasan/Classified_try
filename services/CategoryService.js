@@ -53,7 +53,7 @@ class CategoryService {
   async getSubCategoriesForCategory(name) {
     const data = await this.getData();
     const category = data.find(elm => elm.name === name);
-    if (!category || !category.artwork) return null;
+    if (!category) return null;
     return category.subcategories;
   }
 

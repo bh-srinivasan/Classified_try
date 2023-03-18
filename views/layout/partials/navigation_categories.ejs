@@ -1,11 +1,38 @@
 <nav class="categories_navigation_bar">
-    <ul>
-      <% categoryData.forEach(function(category) { %>
-        <li class="category_list">
-          <a href="#" class="category_list_link">
-            <%= category.name %>
-          </a>
-        </li>
-      <% }); %>
-    </ul>
-  </nav>
+  <ul>
+    <% categoryData.forEach(function(category) { %>
+      <li class="category_list">
+        <a href="#" class="category_list_link" onclick="fetchSubcategories('<%= category.name %>')">
+          <%= category.name %>
+        </a>
+        <div id="<%= category.name %>_subcategories" class="subcategories_dropdown"></div>
+      </li>
+    <% }); %>
+  </ul>
+</nav>
+
+<script>
+  async function fetchSubcategories(categoryName) {
+    try {
+      const response = await fetch(`/category/${categoryName}/subcategories`);
+      const subcategories = await response.json();
+      const subcategoriesDropdown = document.getElementById(
+        `${categoryName}_subcategories`
+      );
+      let subcategoriesHTML = '';
+      if (subcategories) {
+        subcategories.forEach((subcategory) => {
+          subcategoriesHTML += `<a href="#" class="subcategory_link">${subcategory}</a>`;
+        });
+        subcategoriesDropdown.innerHTML = subcategoriesHTML;
+        subcategoriesDropdown.style.display = 'block';
+      } else {
+        console.log(
+          `Calling the category: ${categoryName} - No subcategories found.`
+        );
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+</script>

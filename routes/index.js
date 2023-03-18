@@ -1,4 +1,5 @@
 const express = require('express');
+
 const router = express.Router();
 
 let categoryData;
@@ -24,6 +25,18 @@ module.exports = params => {
 
   router.get('/', (req, res) => {
     res.render('layout/index', { pageTitle: 'Home Page', template: 'index' });
+  });
+
+  router.get('/category/:name/subcategories', async (req, res, next) => {
+    try {
+      const { categoryService } = params;
+      const subcategories = await categoryService.getSubCategoriesForCategory(req.params.name.toString());
+      console.log(req.params.name);
+      console.log(subcategories);
+      res.json(subcategories);
+    } catch (err) {
+      next(err);
+    }
   });
 
   return router;
