@@ -15,11 +15,12 @@ const bodyParser = require('body-parser');
 const CategoryService = require('./services/CategoryService');
 
 // Call constructors of CategoryService
-const categoryService = new CategoryService(path.join(__dirname, 'data', 'categories.json'));
+const categoryService = new CategoryService(
+  path.join(__dirname, 'data', 'categories.json')
+);
 // yconsole.log(categoryService);
 
 const routes = require('./routes/index')({ categoryService });
-
 
 // Create an instance for Express
 const app = express();
@@ -37,17 +38,13 @@ app.use(express.static(path.join(__dirname, 'static')));
 app.set('trust proxy', 1);
 
 // Set Global Variables
-app.locals.appName= 'Together Mart';
-
+app.locals.appName = 'Together Mart';
 
 // Set Variables for Home Page in response
 app.use((request, response, next) => {
   response.locals.homeVar = 'Home';
   next();
 });
-
-
-
 
 // Setup Cookies
 app.use((request, response, next) => {
@@ -65,13 +62,13 @@ app.use(bodyParser.json());
 // Set Global Variables
 app.locals.siteName = 'Together Mart';
 
-// Routes
+// Routes before changing
 app.use('/', routes);
 
 // Middleware to handle "File not found" errors
- app.use((request, response, next) => {
+app.use((request, response, next) => {
   next(createError(404, 'File not found'));
-}); 
+});
 
 // Error handling middleware
 app.use((err, req, res) => {
@@ -104,7 +101,6 @@ app.use((err, req, res) => {
   // Render the error page
   res.render('error');
 });
-
 
 app.listen(port, () => {
   console.log(`Express server listening on port ${port}!`);
