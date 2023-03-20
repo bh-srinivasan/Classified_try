@@ -2,35 +2,35 @@ const express = require('express');
 
 const router = express.Router();
 
-let categoryData;
+module.exports = (params) => {
+  console.log('Inside index.js');
+  let categoryList;
+  let categoryData;
 
-module.exports = params => {
-  let categoryList = null;
-
-  router.use('/', async (req, res, next) => {
-    if (!categoryList) {
-      try {
-        const { categoryService } = params;
-        categoryList = await categoryService.getNames();
-        categoryData = await categoryService.getListShort();
-      } catch (err) {
-        next(err);
-      }
+  router.get('/', async (request, response, next) => {
+    try {
+      console.log(`Inside router get`);
+      const { categoryService } = params;
+      categoryList = await categoryService.getNames();
+      categoryData = await categoryService.getListShort();
+    } catch (err) {
+      next(err);
     }
 
-    res.locals.categoryList = categoryList;
-    res.locals.categoryData = categoryData; // corrected variable name
-    next();
-  });
-
-  router.get('/', (req, res) => {
-    res.render('layout/index', { pageTitle: 'Home Page', template: 'index' });
+    response.locals.categoryList = categoryList;
+    response.locals.categoryData = categoryData;
+    response.render('layout/index', {
+      pageTitle: 'Home Page',
+      template: 'index',
+    });
   });
 
   router.get('/category/:name/subcategories', async (req, res, next) => {
     try {
       const { categoryService } = params;
-      const subcategories = await categoryService.getSubCategoriesForCategory(req.params.name.toString());
+      const subcategories = await categoryService.getSubCategoriesForCategory(
+        req.params.name.toString()
+      );
       console.log(req.params.name);
       console.log(subcategories);
       res.json(subcategories);
